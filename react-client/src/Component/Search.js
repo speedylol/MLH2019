@@ -1,52 +1,47 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
+
+const API_KEY = "9cFkFXpsgH57B659"
+const API_URL = 'http://api.eventful.com/json/events/search?'
+//${API_URL}app_key=${API_KEY}&location=Raleigh
+
 class Search extends Component {
 
-    constructor() {
-        super();
-        this.state = {
-            eventList: []     
-         }
+    constructor(props) {
+        super(props);
+        this.state = { 
+            myEvent: [],
+            query: ''
+        }
     }
 
 
     componentDidMount(){
-    /* fetch(' http://api.eventful.com/json/events/search?app_key=9cFkFXpsgH57B659&location=Raleigh')
-        .then(results => {
-            return results.json();
-        }).then(data => {
-            if(this.props.data){
-            var events = this.data.results.map((ev) => {
-                return(
-                    <div key={ev.results}>
-                        <h1>{ev.events}</h1>
-                    </div>
-                )
-            })
-        }
-            this.setState({eventList: events});
-            console.log("state", this.state.eventList);
-        })
-    */
-   this.getEvents();
-    }
-
-    getEvents(){
         fetch('http://api.eventful.com/json/events/search?app_key=9cFkFXpsgH57B659&location=Raleigh')
-        .then(results => results.json())
-        .then(results => this.setState({eventList: results.title}));
+            .then(results => results.json())
+            .then(json => {this.setState({
+                myEvent: json.events.event,
+            })
+        });
     }
 
     render(){
+
+        var { newEvent } = this.state;
+
         return (
-            /*<ul>
-                {this.state.eventList.map((event, index) => {
-                    return <h1>{event.title}</h1>
-                })}
-            </ul> */
-            console.log(this.state.eventList.map(event => event.length))
-        );
+            <div>
+                <ul>
+                    {this.state.myEvent.map(event => (
+                        <li>
+                            {event.title} | {event.start_time}
+                        </li> 
+                    ))};
+                </ul>
+            </div>
+        
+        )
     }
 }
 
