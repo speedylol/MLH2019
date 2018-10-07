@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import { InstantSearch, Hits, SearchBox } from 'react-instantsearch-dom';
 
 
 const API_KEY = "9cFkFXpsgH57B659"
@@ -40,6 +41,8 @@ class Search extends Component {
                     <input type="text"></input>
                     <button type="submit"> Search</button>
                 </form>
+
+
                 <ul>
                     {this.state.myEvent.map(event => (
                         <li>
@@ -48,6 +51,9 @@ class Search extends Component {
                     ))};
                 </ul>
                 
+                <script>
+                    
+                </script>
             </div>
         
         )
