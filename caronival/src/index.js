@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { InstantSearch, Hits, SearchBox } from 'react-instantsearch-dom';
+//import { InstantSearch, Hits, SearchBox } from 'react-instantsearch-dom';
 
 
 const API_KEY = "9cFkFXpsgH57B659"
@@ -36,7 +36,7 @@ class Search extends Component {
 
         return (
             <div>
-                <form>
+                <form onSubmit="">
                     <input type="text"></input>
                     <input type="text"></input>
                     <button type="submit"> Search</button>
