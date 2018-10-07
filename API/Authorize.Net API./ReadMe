@@ -1,0 +1,2 @@
+Authorize.Net is an API that is used as an intermediate API when someone wants to do Online Banking. 
+In an event of failure or suspicious usage of Online Banking(read: Fraud Detection), Authorize.API will flag an alert about the same.
