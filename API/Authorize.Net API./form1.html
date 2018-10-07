@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>AmEx Form</title>
+</head>
+
+<body>
+
+<form name="login">
+  <div class="form-group">
+  <input name="email" type="email">
+  </div>
+   <div class="form-group">
+  <input name="password" type="password">
+  </div>
+   <div class="form-group">
+   
+  <input name="creditcard" type="number">
+   </div>
+   <div class="form-group">
+  <input name="CVV" type="number">
+   </div>
+   <div class="form-group">
+  <input name="Mobile" type="number">
+   </div>
+   <div class="form-group">
+  <button type="submit">Sign Up</button>
+</form>
+
+<script>
+  var loginForm = document.forms.login; 
+  loginForm.elements.email.placeholder = 'test@example.com';
+  loginForm.elements.password.placeholder = 'password';
+  loginForm.elements.creditcard.placeholder = 'Number';
+  loginForm.elements.CVV.placeholder = 'Number';
+  loginForm.elements.Mobile.placeholder = 'Number';
+</script>
+</body>
+</html>
