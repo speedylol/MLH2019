@@ -14,13 +14,15 @@ class Search extends Component {
         super(props);
         this.state = { 
             myEvent: [],
-            location: ''
-        }
+            location: 'Raleigh'
+        };
+
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
 
     componentDidMount(){
-        fetch(`${API_URL}app_key=${API_KEY}&location=Raleigh`, {
+        fetch(`${API_URL}app_key=${API_KEY}&location=${this.state.location}}}`, {
             mode: "cors"
         })
             .then(results => results.json())
@@ -30,15 +32,17 @@ class Search extends Component {
         });
     }
 
-    render(){
+    handleSubmit(userEvent){
+        this.setState({location: userEvent.target.value});
+        userEvent.preventDefault();
+    }
 
-        var { newEvent } = this.state;
+    render(){
 
         return (
             <div>
-                <form onSubmit="">
-                    <input type="text"></input>
-                    <input type="text"></input>
+                <form onSubmit="{this.handleSubmit}">
+                    <input type="text" ref="place"/>
                     <button type="submit"> Search</button>
                 </form>
 
@@ -48,12 +52,9 @@ class Search extends Component {
                         <li>
                             {event.title} | {event.start_time}
                         </li> 
-                    ))};
+                    ))}
                 </ul>
-                
-                <script>
-                    
-                </script>
+
             </div>
         
         )
