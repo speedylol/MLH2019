@@ -5,8 +5,6 @@ import ReactDOM from 'react-dom';
 
 const API_KEY = "9cFkFXpsgH57B659"
 const API_URL = 'http://api.eventful.com/json/events/search?'
-//${API_URL}app_key=${API_KEY}&location=Raleigh
-//http://api.eventful.com/json/events/search?app_key=9cFkFXpsgH57B659&location=Raleigh
 
 class Search extends Component {
 
@@ -14,9 +12,10 @@ class Search extends Component {
         super(props);
         this.state = { 
             myEvent: [],
-            location: 'Raleigh'
+            location: 'Chapel Hill',
         };
 
+        this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
@@ -32,9 +31,15 @@ class Search extends Component {
         });
     }
 
-    handleSubmit(userEvent){
-        this.setState({location: userEvent.target.value});
-        userEvent.preventDefault();
+    handleChange (e) {
+        this.setState({
+            location: e.target.value
+        });
+      }
+
+    handleSubmit(e){
+        this.setState({location: e.target.value});
+        e.preventDefault();
     }
 
     render(){
@@ -42,19 +47,17 @@ class Search extends Component {
         return (
             <div>
                 <form onSubmit="{this.handleSubmit}">
-                    <input type="text" ref="place"/>
+                    <input type="text" value={this.state.location} ref="text" onChange={this.handleChange} />
                     <button type="submit"> Search</button>
                 </form>
 
-
                 <ul>
-                    {this.state.myEvent.map(event => (
-                        <li>
-                            {event.title} | {event.start_time}
-                        </li> 
-                    ))}
-                </ul>
-
+                        {this.state.myEvent.map(event => (
+                            <li>
+                                {event.title} | {event.start_time}
+                            </li> 
+                        ))}
+                    </ul>
             </div>
         
         )
