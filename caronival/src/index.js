@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 
 const API_KEY = "9cFkFXpsgH57B659"
 const API_URL = 'http://api.eventful.com/json/events/search?'
+//var longitude = 0.0;
+//var latitude = 0.0;
 
 class Search extends Component {
 
@@ -11,6 +13,8 @@ class Search extends Component {
         this.state = { 
             myEvent: [],
             location: 'Chapel Hill',
+            longitude: 0.0,
+            latitude: 0.0
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -46,6 +50,7 @@ class Search extends Component {
                 myEvent: json.events.event,
             })
         });
+
     }
 
     render(){
@@ -58,7 +63,7 @@ class Search extends Component {
                 <ul>
                         {this.state.myEvent.map(event => (
                             <li>
-                                {event.title} | {event.start_time}
+                                {event.title} | {event.start_time} 
                             </li> 
                         ))}
                     </ul>
