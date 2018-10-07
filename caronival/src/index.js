@@ -35,6 +35,11 @@ class Search extends Component {
 
         return (
             <div>
+                <form>
+                    <input type="text"></input>
+                    <input type="text"></input>
+                    <button type="submit"> Search</button>
+                </form>
                 <ul>
                     {this.state.myEvent.map(event => (
                         <li>
@@ -42,6 +47,7 @@ class Search extends Component {
                         </li> 
                     ))};
                 </ul>
+                
             </div>
         
         )
