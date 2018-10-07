@@ -1,7 +1,9 @@
-Installing and Running React:-
+# Installing and Running React:-
+
+## Example:-
 
 mkdir maps  //Create a directory
-cd maps     //Go in the directory
+cd maps     //Go inside the directory
 
 sudo npm install -g create-react-app //Installing react via Node Package Manager
 create-react-app gmaps-app           // Creating a react project; this will install react
@@ -9,6 +11,9 @@ npm install --save google-maps-react    //Installing the Google Maps API
 
 npm start       // Starting a react project
 
-The App.js program in the ~/maps/gmaps-app/node_modules/src folder is run. To integrate the Google Maps API, or any API in general, make changes in this file. (maps is the folder we created earlier and gmaps-app is the project we created using create-react-app)
+The App.js program in the 
 
+### ~/maps/gmaps-app/node_modules/src folder is run. 
 
+To integrate the Google Maps API, or any API in general, make changes in this file.
+Maps is the folder we created earlier and gmaps-app is the project we created using create-react-app.
