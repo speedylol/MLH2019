@@ -60,13 +60,13 @@ class Search extends Component {
                     <input type="text" value={this.state.location} ref="text" onChange={this.handleChange} />
                     <button onClick={this.handleSubmit}> Search</button>
 
-                <ul>
+                    <ol>
                         {this.state.myEvent.map(event => (
                             <li>
                                 {event.title} | {event.start_time} 
                             </li> 
                         ))}
-                    </ul>
+                    </ol>
             </div>
         
         )
